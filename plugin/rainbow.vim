@@ -48,6 +48,7 @@ function rainbow#enable() abort
 		let spc_left = &tabstop
 		while spc_left > 0
 			let spc_in_tab = spc_in_tab . " "
+			let spc_left = spc_left - 1
 		endwhile
 		let spc_pat = "\\zs" . spc_in_tab . "\\ze"
 		let spc_seq = ""
