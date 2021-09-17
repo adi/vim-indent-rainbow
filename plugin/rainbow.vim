@@ -19,19 +19,20 @@
 																		
 
 hi GroupRed ctermbg=Red
-hi GroupMagenta ctermbg=Magenta
 hi GroupYellow ctermbg=Yellow
 hi GroupGreen ctermbg=Green
 hi GroupCyan ctermbg=Cyan
 hi GroupBlue ctermbg=Blue
+hi GroupMagenta ctermbg=Magenta
 
 let s:grs = [
 	\ "GroupRed",
-	\ "GroupMagenta",
 	\ "GroupYellow",
 	\ "GroupGreen",
 	\ "GroupCyan",
-	\ "GroupBlue"]
+	\ "GroupBlue",
+	\ "GroupMagenta",
+	\ ]
 
 let s:ms = []
 
