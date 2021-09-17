@@ -18,12 +18,12 @@
 																	
 																		
 
-hi GroupRed ctermbg=232
-hi GroupYellow ctermbg=233
-hi GroupGreen ctermbg=234
-hi GroupCyan ctermbg=235
-hi GroupBlue ctermbg=236
-hi GroupMagenta ctermbg=237
+hi GroupRed ctermbg=233
+hi GroupYellow ctermbg=234
+hi GroupGreen ctermbg=235
+hi GroupCyan ctermbg=236
+hi GroupBlue ctermbg=237
+hi GroupMagenta ctermbg=238
 
 let s:grs = [
 	\ "GroupRed",
@@ -35,8 +35,8 @@ let s:grs = [
 	\ ]
 
 let s:ms = []
-" let s:maxcolors = len(s:grs)
-let s:maxcolors = 4
+" let g:rainbow_maxcolors = len(s:grs) " enable this if you want all the colors
+let g:rainbow_maxcolors = 4
 
 function rainbow#enable() abort
 	let level = 0
@@ -44,7 +44,7 @@ function rainbow#enable() abort
 	let pat = "\\zs\t\\ze"
 	let tabseq = ""
 	while level <= maxlevel
-		let gridx = level % s:maxcolors
+		let gridx = level % g:rainbow_maxcolors
 		" echom s:grs[gridx] . "   ^" . tabseq . pat
 		let m = matchadd( s:grs[gridx], "^" . tabseq . pat )
 		call add(s:ms, m)
