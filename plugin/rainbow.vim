@@ -34,11 +34,13 @@ let s:grs = [
 	\ "GroupMagenta",
 	\ ]
 
-let w:ms = []
 " let g:rainbow_maxcolors = len(s:grs) " enable this if you want all the colors
 let g:rainbow_maxcolors = 4
 
 function rainbow#enable() abort
+    if !exists("w:ms")
+        let w:ms=[]
+    endif
 	let level = 0
 	let maxlevel = 40
 	let pat = "\\zs\t\\ze"
@@ -54,6 +56,9 @@ function rainbow#enable() abort
 endfunction
 
 function rainbow#disable() abort
+    if !exists("w:ms")
+        let w:ms=[]
+    endif
 	for m in w:ms
 		call matchdelete(m)
 	endfor
@@ -61,6 +66,9 @@ function rainbow#disable() abort
 endfunction
 
 function rainbow#toogle() abort
+    if !exists("w:ms")
+        let w:ms=[]
+    endif
 	if len(w:ms) == 0
 		call rainbow#enable()
 	else
@@ -68,7 +76,10 @@ function rainbow#toogle() abort
 	endif
 endfunction
 
-call rainbow#enable()
+augroup rainbowgroup
+  au!
+  au WinEnter * :call rainbow#enable()
+augroup END
 
 nnoremap <Plug>RainbowToogle :call rainbow#toogle()<CR>
 
