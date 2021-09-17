@@ -35,6 +35,8 @@ let s:grs = [
 	\ ]
 
 let s:ms = []
+" let s:maxcolors = len(s:grs)
+let s:maxcolors = 4
 
 function rainbow#enable() abort
 	let level = 0
@@ -42,7 +44,7 @@ function rainbow#enable() abort
 	let pat = "\\zs\t\\ze"
 	let tabseq = ""
 	while level <= maxlevel
-		let gridx = level % len(s:grs)
+		let gridx = level % s:maxcolors
 		" echom s:grs[gridx] . "   ^" . tabseq . pat
 		let m = matchadd( s:grs[gridx], "^" . tabseq . pat )
 		call add(s:ms, m)
