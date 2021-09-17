@@ -16,29 +16,25 @@
 															
 																
 
-hi GroupRed ctermbg=234
-hi GroupYellow ctermbg=235
-hi GroupGreen ctermbg=236
-hi GroupCyan ctermbg=237
-hi GroupBlue ctermbg=238
-hi GroupMagenta ctermbg=239
 
-let s:grs = [
-	\ "GroupRed",
-	\ "GroupYellow",
-	\ "GroupGreen",
-	\ "GroupCyan",
-	\ "GroupBlue",
-	\ "GroupMagenta",
-	\ ]
+let g:rainbow_colors={
+	\ 'red':234,
+	\ 'yellow':235,
+	\ 'green':236,
+	\ 'cyan':237,
+	\ 'blue':238,
+	\ 'magenta':239,
+\ }
 
-let g:rainbow_maxcolors = len(s:grs)
-
-function rainbow#enable() abort
+function! rainbow#enable() abort
 	if !exists("w:ms")
 		let w:ms=[]
 	endif
 	if len(w:ms) == 0
+		let colorNames = keys(g:rainbow_colors)
+		for colorName in colorNames
+			execute "hi ".colorName."_group ctermbg=".g:rainbow_colors[colorName]
+		endfor
 		let level = 0
 		let maxlevel = 40
 		let tab_pat = "\\zs\t\\ze"
@@ -52,11 +48,11 @@ function rainbow#enable() abort
 		let spc_pat = "\\zs" . spc_in_tab . "\\ze"
 		let spc_seq = ""
 		while level <= maxlevel
-			let gridx = level % g:rainbow_maxcolors
+			let gridx = level % len(colorNames)
 			" echom s:grs[gridx] . "   ^" . tabseq . pat
-			let mtab = matchadd( s:grs[gridx], "^" . tab_seq . tab_pat )
+			let mtab = matchadd( colorNames[gridx]."_group" , "^" . tab_seq . tab_pat )
 			call add(w:ms, mtab)
-			let mspc = matchadd( s:grs[gridx], "^" . spc_seq . spc_pat )
+			let mspc = matchadd( colorNames[gridx]."_group" , "^" . spc_seq . spc_pat )
 			call add(w:ms, mspc)
 			let tab_seq = tab_seq . "\t"
 			let spc_seq = spc_seq . spc_in_tab
@@ -65,7 +61,7 @@ function rainbow#enable() abort
 	endif
 endfunction
 
-function rainbow#disable() abort
+function! rainbow#disable() abort
 	if !exists("w:ms")
 		let w:ms=[]
 	endif
@@ -77,7 +73,7 @@ function rainbow#disable() abort
 	endif
 endfunction
 
-function rainbow#toogle() abort
+function! rainbow#toogle() abort
 	if !exists("w:ms")
 		let w:ms=[]
 	endif
