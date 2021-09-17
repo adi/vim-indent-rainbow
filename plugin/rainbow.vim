@@ -34,7 +34,7 @@ let s:grs = [
 	\ "GroupMagenta",
 	\ ]
 
-let s:ms = []
+let w:ms = []
 " let g:rainbow_maxcolors = len(s:grs) " enable this if you want all the colors
 let g:rainbow_maxcolors = 4
 
@@ -47,21 +47,21 @@ function rainbow#enable() abort
 		let gridx = level % g:rainbow_maxcolors
 		" echom s:grs[gridx] . "   ^" . tabseq . pat
 		let m = matchadd( s:grs[gridx], "^" . tabseq . pat )
-		call add(s:ms, m)
+		call add(w:ms, m)
 		let tabseq = tabseq . "\t"
 		let level = level + 1
 	endwhile
 endfunction
 
 function rainbow#disable() abort
-	for m in s:ms
+	for m in w:ms
 		call matchdelete(m)
 	endfor
-	let s:ms = []
+	let w:ms = []
 endfunction
 
 function rainbow#toogle() abort
-	if len(s:ms) == 0
+	if len(w:ms) == 0
 		call rainbow#enable()
 	else
 		call rainbow#disable()
