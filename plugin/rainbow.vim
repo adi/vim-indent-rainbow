@@ -42,14 +42,24 @@ function rainbow#enable() abort
 	if len(w:ms) == 0
 		let level = 0
 		let maxlevel = 40
-		let pat = "\\zs\t\\ze"
-		let tabseq = ""
+		let tab_pat = "\\zs\t\\ze"
+		let tab_seq = ""
+		let spc_in_tab = ""
+		let spc_left = &tabstop
+		while spc_left > 0
+			spc_in_tab = spc_in_tab . " "
+		endwhile
+		let spc_pat = "\\zs" . spc_in_tab . "\\ze"
+		let spc_seq = ""
 		while level <= maxlevel
 			let gridx = level % g:rainbow_maxcolors
 			" echom s:grs[gridx] . "   ^" . tabseq . pat
-			let m = matchadd( s:grs[gridx], "^" . tabseq . pat )
-			call add(w:ms, m)
-			let tabseq = tabseq . "\t"
+			let mtab = matchadd( s:grs[gridx], "^" . tab_seq . tab_pat )
+			call add(w:ms, mtab)
+			let mspc = matchadd( s:grs[gridx], "^" . spc_seq . spc_pat )
+			call add(w:ms, mspc)
+			let tab_seq = tab_seq . "\t"
+			let spc_seq = spc_seq . spc_in_tab
 			let level = level + 1
 		endwhile
 	endif
