@@ -18,20 +18,21 @@
 																	
 																		
 
-hi GroupRed ctermbg=Red
-hi GroupMagenta ctermbg=Magenta
-hi GroupYellow ctermbg=Yellow
-hi GroupGreen ctermbg=Green
-hi GroupCyan ctermbg=Cyan
-hi GroupBlue ctermbg=Blue
+hi GroupRed ctermbg=232
+hi GroupYellow ctermbg=233
+hi GroupGreen ctermbg=234
+hi GroupCyan ctermbg=235
+hi GroupBlue ctermbg=236
+hi GroupMagenta ctermbg=237
 
 let s:grs = [
 	\ "GroupRed",
-	\ "GroupMagenta",
 	\ "GroupYellow",
 	\ "GroupGreen",
 	\ "GroupCyan",
-	\ "GroupBlue"]
+	\ "GroupBlue",
+	\ "GroupMagenta",
+	\ ]
 
 let s:ms = []
 
@@ -69,5 +70,5 @@ call rainbow#enable()
 
 nnoremap <Plug>RainbowToogle :call rainbow#toogle()<CR>
 
-nmap <leader><TAB> <Plug>RainbowToogle
+nmap <silent><leader><TAB> <Plug>RainbowToogle
 
