@@ -32,8 +32,7 @@ let s:grs = [
 	\ "GroupMagenta",
 	\ ]
 
-" let g:rainbow_maxcolors = len(s:grs) " enable this if you want all the colors
-let g:rainbow_maxcolors = 4
+let g:rainbow_maxcolors = len(s:grs)
 
 function rainbow#enable() abort
 	if !exists("w:ms")
