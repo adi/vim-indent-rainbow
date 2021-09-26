@@ -42,7 +42,7 @@ This will use pastel colors if you are using a light background, or shades of gr
 
 The rainbow indent is not just limited to python files: you can use the same feature on any file, for example here's my rainbowised rainbow.vim inside vim:
 
-![rainbow.vim is rainbowised by itself](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/rainbow.jpg)
+![rainbow.vim is rainbowised by itself](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/rainbow_wim.jpg)
 
 ## Configuration
 
