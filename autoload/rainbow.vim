@@ -1,35 +1,20 @@
-
-	
-		
-			
-				
-					
-						
+"_ demo with lookback to first color
 							
-								
-									
-										
-											
-												
-													
-														
-															
-																
 
+"# use 256-colors.sh to pick, here we have shades of black + the usual rainbow
+if !exists("g:rainbow_colors_black")
+    let g:rainbow_colors_black= [ 234, 235, 236, 237, 238, 239 ]
+endif
+if !exists("g:rainbow_colors_color")
+    let g:rainbow_colors_color= [ 226, 192, 195, 189, 225, 221 ]
+endif
 
-let g:rainbow_colors=[
-	\ 234,
-	\ 235,
-	\ 236,
-	\ 237,
-	\ 238,
-	\ 239,
-\ ]
-
+" the code follows
 function! rainbow#enable() abort
 	if !exists("w:ms")
 		let w:ms=[]
 	endif
+        let g:rainbow_colors = ( &background == "dark"? g:rainbow_colors_black : g:rainbow_colors_color )
 	if len(w:ms) == 0
 		let groups = []
 		for color in g:rainbow_colors
@@ -75,7 +60,7 @@ function! rainbow#disable() abort
 	endif
 endfunction
 
-function! rainbow#toogle() abort
+function! rainbow#toggle() abort
 	if !exists("w:ms")
 		let w:ms=[]
 	endif
@@ -85,14 +70,4 @@ function! rainbow#toogle() abort
 		call rainbow#disable()
 	endif
 endfunction
-
-augroup rainbowgroup
-	au!
-	au WinEnter * :call rainbow#enable()
-	au VimEnter * :call rainbow#enable()
-augroup END
-
-nnoremap <Plug>RainbowToogle :call rainbow#toogle()<CR>
-
-nmap <silent><leader><TAB> <Plug>RainbowToogle
 
