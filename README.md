@@ -12,7 +12,7 @@ Contributors provide an express grant of patent rights. Licensed works, modifica
 
 ## Example
 
-![static image in indent rainbow mode](https://raw.githubusercontent.com/csdvrx/indent-rainbow/master/vim-indent-rainbow.jpg)
+![static image in indent rainbow mode](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/vim-indent-rainbow.jpg)
 
 Is this madness? No, this is python, where tabs are used by the interpreter, and not just reserved for code presentation...
 
@@ -22,7 +22,7 @@ I couldn't think of anything funny, so I just used True and False, but feel free
 
 The rainbow will automatically use pastel colors if you are using a light background, or shades of grey if you are using a dark background:
 
-![demo of the indent rainbow theme synchronization](https://raw.githubusercontent.com/csdvrx/indent-rainbow/master/vim-indent-rainbow_solarized.gif)
+![demo of the indent rainbow theme synchronization](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/vim-indent-rainbow_solarized.gif)
 
 The above is what it looks like in Windows Terminal Preview, with syntax coloring enabled and Solarized Light, toggling indent-rainbow, then switching to Solarized Dark and doing the same.
 
@@ -42,7 +42,7 @@ This will use pastel colors if you are using a light background, or shades of gr
 
 The rainbow indent is not just limited to python files: you can use the same feature on any file, for example here's my rainbowised rainbow.vim inside vim:
 
-![rainbow.vim is rainbowised by itself](https://raw.githubusercontent.com/csdvrx/indent-rainbow/master/rainbow.jpg)
+![rainbow.vim is rainbowised by itself](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/rainbow.jpg)
 
 ## Configuration
 
@@ -55,7 +55,7 @@ let g:rainbow_colors_color= [ 226, 192, 195, 189, 225, 221 ]
 
 In case you can't run bash, or are too lazy, here's what the colors look like, so you can see 232 to 255 are different shades of grey.
 
-![output of 256-colors.sh](https://raw.githubusercontent.com/csdvrx/indent-rainbow/master/config/256-colors.jpg)
+![output of 256-colors.sh](https://raw.githubusercontent.com/csdvrx/indent-rainbow/main/config/256-colors.jpg)
 
 To automagically start the indent rainbow with some file formats, like say python, add to your .vimrc:
 
