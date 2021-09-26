@@ -1,16 +1,15 @@
-" demo with lookback to first color
+"_ demo with lookback to first color
 							
 
-" use 256-colors.sh to pick, here we have shades of black + the usual rainbow
+"# use 256-colors.sh to pick, here we have shades of black + the usual rainbow
 if !exists("g:rainbow_colors_black")
     let g:rainbow_colors_black= [ 234, 235, 236, 237, 238, 239 ]
 endif
 if !exists("g:rainbow_colors_color")
-    let g:rainbow_colors_color= [226, 192, 195, 189, 225, 221]
+    let g:rainbow_colors_color= [ 226, 192, 195, 189, 225, 221 ]
 endif
 
-" use one of these unless specified otherwise
-
+" the code follows
 function! rainbow#enable() abort
 	if !exists("w:ms")
 		let w:ms=[]
