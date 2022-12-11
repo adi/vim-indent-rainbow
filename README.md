@@ -32,9 +32,9 @@ Add the files togglerb.vim and rainbow.vim to your ~/.vim/autoload so that they 
 
 To setup a hotkey like F9 to enable the indent rainbow on demand, add to your .vimrc:
 
-``
+```vim
 call togglerb#map("<F9>")
-``
+```
 
 This will use pastel colors if you are using a light background, or shades of grey if you are using a dark background.
 
@@ -48,10 +48,10 @@ The rainbow indent is not just limited to python files: you can use the same fea
 
 To change the default colors, pick 6 colors from the output of config/256-colors.sh as explained at the beginning of rainbow.vim, and put them in your .vimrc, like:
 
-``
+```vim
 let g:rainbow_colors_black= [ 234, 235, 236, 237, 238, 239 ]
 let g:rainbow_colors_color= [ 226, 192, 195, 189, 225, 221 ]
-``
+```
 
 In case you can't run bash, or are too lazy, here's what the colors look like, so you can see 232 to 255 are different shades of grey.
 
@@ -59,7 +59,7 @@ In case you can't run bash, or are too lazy, here's what the colors look like, s
 
 To automagically start the indent rainbow with some file formats, like say python, add to your .vimrc:
 
-`` 
+```vim 
 if has("autocmd")
  augroup python
   au!
@@ -75,7 +75,7 @@ if has("autocmd")
   autocmd WinEnter,VimEnter *.py :call rainbow#enable()
  augroup END
 endif
-``
+```
 
 If you want more, I have added some of the syntax configuration files I used in the after/ directory: I mostly care about the structure of comments standing out, so I use various text attributes like bold, italics, underline...
 
